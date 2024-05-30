@@ -77,6 +77,34 @@ DateTimePicker se deriva de DatePicker y TimePicker. Por una explicación más d
 ```
 :::
 
+###  Zona horaria personalizada
+
+:::demo Al configurar el atributo `timezone`, puedes personalizar la zona horaria especificada. El método de uso de las opciones rápidas es el mismo que el del selector de fechas.
+```html
+<template>
+  <div class="block">
+    <span class="demonstration">Hora de Londres</span>
+    <el-date-picker
+      v-model="value1"
+      type="datetime"
+      timezone="Europe/London"
+      placeholder="Seleccionar fecha y hora">
+    </el-date-picker>
+  </div>
+</template>
+
+<script>
+  export default {
+    data() {
+      return {
+        value1: ''
+      };
+    }
+  };
+</script>
+```
+:::
+
 ### Alcance de fecha y tiempo
 
 :::demo Puede seleccionar la fecha y el rango de tiempo ajustando `type` a `datetimerange`.
@@ -215,6 +243,7 @@ DateTimePicker se deriva de DatePicker y TimePicker. Por una explicación más d
 | prefix-icon        | Clase personalizada para el icono prefijado | string            | —                                        | el-icon-date         |
 | clear-icon         | Clase personalizada para el icono `clear` | string              | —                                        | el-icon-circle-close |
 | validate-event     | si se debe disparar la validación | boolean             | -                                        | true                 |
+| timezone | Código de zona horaria personalizada | string |código de zona horaria, por ejemplo:`Asia/Shanghai` | Código de zona horaria del sistema |
 
 ### Picker Options
 | Atributo       | Descripción                              | Tipo     | Valores aceptados | Por defecto |

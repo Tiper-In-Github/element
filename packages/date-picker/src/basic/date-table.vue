@@ -103,7 +103,6 @@
         }
       },
 
-      
       timezone: { // 使组件可以指定时区，默认使用本地时区 -- qiupeng
         type: String,
         default: moment.tz.guess()

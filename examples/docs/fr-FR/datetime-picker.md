@@ -76,6 +76,35 @@ DateTimePicker est dérivé de DatePicker et TimePicker. Pour plus d'information
 ```
 :::
 
+###  Fuseau horaire personnalisé
+
+:::demo En définissant l'attribut `timezone`, vous pouvez personnaliser le fuseau horaire spécifié. L'utilisation des options rapides est la même que celle du sélecteur de date.
+```html
+<template>
+  <div class="block">
+    <span class="demonstration">Heure de Londres</span>
+    <el-date-picker
+      v-model="value1"
+      type="datetime"
+      timezone="Europe/London"
+      placeholder="Sélectionner la date et l'heure">
+    </el-date-picker>
+  </div>
+</template>
+
+<script>
+  export default {
+    data() {
+      return {
+        value1: ''
+      };
+    }
+  };
+</script>
+```
+:::
+
+
 ### Plage de dates et d'horaires
 
 :::demo Vous pouvez sélectionner des plages en configurant `type` sur `datetimerange`.
@@ -213,6 +242,7 @@ DateTimePicker est dérivé de DatePicker et TimePicker. Pour plus d'information
 | unlink-panels | Rend indépendants les deux panneaux de plage de dates | boolean | — | false |
 | prefix-icon | Icône de préfixe. | string | — | el-icon-date |
 | clear-icon | Icône de reset | string | — | el-icon-circle-close |
+| timezone | Code de fuseau horaire personnalisé | string | code de fuseau horaire, par exemple: `Asia/Shanghai` | Code de fuseau horaire du système |
 
 ### Options du Picker
 | Attribut      | Description          | Type      | Valeurs acceptées       | Défaut  |

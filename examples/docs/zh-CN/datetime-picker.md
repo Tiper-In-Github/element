@@ -76,6 +76,34 @@ DateTimePicker 由 DatePicker 和 TimePicker 派生，`Picker Options` 或者其
 ```
 :::
 
+###  自定义时区
+
+:::demo 通过设置`timezone`属性，可自定义指定的时区。快捷选项的使用方法与 Date Picker 相同。
+```html
+<template>
+  <div class="block">
+    <span class="demonstration">伦敦时间</span>
+    <el-date-picker
+      v-model="value1"
+      type="datetime"
+      timezone="Europe/London"
+      placeholder="选择日期时间">
+    </el-date-picker>
+  </div>
+</template>
+
+<script>
+  export default {
+    data() {
+      return {
+        value1: ''
+      };
+    }
+  };
+</script>
+```
+:::
+
 ### 日期和时间范围
 
 :::demo 设置`type`为`datetimerange`即可选择日期和时间范围
@@ -212,6 +240,7 @@ DateTimePicker 由 DatePicker 和 TimePicker 派生，`Picker Options` 或者其
 | unlink-panels | 在范围选择器里取消两个日期面板之间的联动 | boolean | — | false |
 | prefix-icon | 自定义头部图标的类名 | string | — | el-icon-date |
 | clear-icon | 自定义清空图标的类名 | string | — | el-icon-circle-close |
+| timezone | 自定义时区的代码 | string | 时区代码,如:`Asia/Shanghai` | 系统时区代码 |
 
 ### Picker Options
 | 参数      | 说明          | 类型      | 可选值                           | 默认值  |

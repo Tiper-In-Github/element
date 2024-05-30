@@ -853,13 +853,13 @@ export default {
     },
 
     mountPicker() {
-      let tempFun = this.panel.data
+      let tempFun = this.panel.data;
       this.panel.data = () => {
         return {
           timezone: this.timezone, // add timezone to PanelComponent
           ...tempFun()
-        }
-      }
+        };
+      };
       this.picker = new Vue(this.panel).$mount();
       this.picker.defaultValue = this.defaultValue;
       this.picker.defaultTime = this.defaultTime;

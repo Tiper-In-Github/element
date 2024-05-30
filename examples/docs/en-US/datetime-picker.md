@@ -76,6 +76,35 @@ DateTimePicker is derived from DatePicker and TimePicker. For a more detailed ex
 ```
 :::
 
+###  Custom time zone
+
+:::demo You can customize the specified time zone by setting the `timezone` attribute. The way to use shortcuts is the same as Date Picker.
+```html
+<template>
+  <div class="block">
+    <span class="demonstration">London time</span>
+    <el-date-picker
+      v-model="value1"
+      type="datetime"
+      timezone="Europe/London"
+      placeholder="Select date and time">
+    </el-date-picker>
+  </div>
+</template>
+
+<script>
+  export default {
+    data() {
+      return {
+        value1: ''
+      };
+    }
+  };
+</script>
+```
+:::
+
+
 ### Date and time range
 
 :::demo You can select date and time range by setting `type` to `datetimerange`.
@@ -213,6 +242,7 @@ DateTimePicker is derived from DatePicker and TimePicker. For a more detailed ex
 | unlink-panels | unlink two date-panels in range-picker | boolean | — | false |
 | prefix-icon | Custom prefix icon class | string | — | el-icon-date |
 | clear-icon | Custom clear icon class | string | — | el-icon-circle-close |
+| timezone | Code for customizing the time zone | string | Time zone code, such as:`Asia/Shanghai` | System time zone code |
 
 ### Picker Options
 | Attribute      | Description          | Type      | Accepted Values       | Default  |
