@@ -91,6 +91,7 @@ import Popper from 'element-ui/src/utils/vue-popper';
 import Emitter from 'element-ui/src/mixins/emitter';
 import ElInput from 'element-ui/packages/input';
 import merge from 'element-ui/src/utils/merge';
+import moment from 'moment-timezone';
 
 const NewPopper = {
   props: {
@@ -374,6 +375,10 @@ export default {
     startPlaceholder: String,
     endPlaceholder: String,
     prefixIcon: String,
+    timezone: {
+      type: String,
+      default: moment.tz.guess()
+    },
     clearIcon: {
       type: String,
       default: 'el-icon-circle-close'
@@ -848,6 +853,13 @@ export default {
     },
 
     mountPicker() {
+      let tempFun = this.panel.data
+      this.panel.data = () => {
+        return {
+          timezone: this.timezone, // add timezone to PanelComponent
+          ...tempFun()
+        }
+      }
       this.picker = new Vue(this.panel).$mount();
       this.picker.defaultValue = this.defaultValue;
       this.picker.defaultTime = this.defaultTime;

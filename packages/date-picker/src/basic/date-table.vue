@@ -35,6 +35,7 @@
   import { getFirstDayOfMonth, getDayCountOfMonth, getWeekNumber, getStartDateOfMonth, prevDate, nextDate, isDate, clearTime as _clearTime} from 'element-ui/src/utils/date-util';
   import Locale from 'element-ui/src/mixins/locale';
   import { arrayFindIndex, arrayFind, coerceTruthyValueToArray } from 'element-ui/src/utils/util';
+  import moment from 'moment-timezone';
 
   const WEEKS = ['sun', 'mon', 'tue', 'wed', 'thu', 'fri', 'sat'];
   const getDateTimestamp = function(time) {
@@ -100,6 +101,12 @@
             selecting: false
           };
         }
+      },
+
+      
+      timezone: { // 使组件可以指定时区，默认使用本地时区 -- qiupeng
+        type: String,
+        default: moment.tz.guess()
       }
     },
 
@@ -144,7 +151,7 @@
         const disabledDate = this.disabledDate;
         const cellClassName = this.cellClassName;
         const selectedDate = this.selectionMode === 'dates' ? coerceTruthyValueToArray(this.value) : [];
-        const now = getDateTimestamp(new Date());
+        const now = getDateTimestamp(new Date(moment().tz(this.timezone).format('YYYY-MM-DD HH:mm:ss')));
 
         for (let i = 0; i < 6; i++) {
           const row = rows[i];

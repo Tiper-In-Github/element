@@ -97,7 +97,8 @@
               :default-value="defaultValue ? new Date(defaultValue) : null"
               :date="date"
               :cell-class-name="cellClassName"
-              :disabled-date="disabledDate">
+              :disabled-date="disabledDate"
+              :timezone="timezone">
             </date-table>
             <year-table
               v-show="currentView === 'year'"
@@ -172,6 +173,7 @@
   import YearTable from '../basic/year-table';
   import MonthTable from '../basic/month-table';
   import DateTable from '../basic/date-table';
+  import moment from 'moment-timezone';
 
   export default {
     mixins: [Locale],
@@ -382,7 +384,7 @@
         // NOTE: not a permanent solution
         //       consider disable "now" button in the future
         if ((!this.disabledDate || !this.disabledDate(new Date())) && this.checkDateWithinRange(new Date())) {
-          this.date = new Date();
+          this.date = new Date(moment().tz(this.timezone).format('YYYY-MM-DD HH:mm:ss'));
           this.emit(this.date);
         }
       },

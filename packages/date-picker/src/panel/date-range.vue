@@ -119,8 +119,9 @@
               :range-state="rangeState"
               :disabled-date="disabledDate"
               :cell-class-name="cellClassName"
-              @changerange="handleChangeRange"
               :first-day-of-week="firstDayOfWeek"
+              :timezone="timezone"
+              @changerange="handleChangeRange"
               @pick="handleRangePick">
             </date-table>
           </div>
@@ -159,8 +160,9 @@
               :range-state="rangeState"
               :disabled-date="disabledDate"
               :cell-class-name="cellClassName"
-              @changerange="handleChangeRange"
               :first-day-of-week="firstDayOfWeek"
+              :timezone="timezone"
+              @changerange="handleChangeRange"
               @pick="handleRangePick">
             </date-table>
           </div>
